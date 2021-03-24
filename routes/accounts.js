@@ -1,7 +1,6 @@
 import express from "express";
 const router = express.Router();
 import { promises as fs } from "fs";
-import { loggers } from "winston";
 
 const { readFile, writeFile } = fs;
 

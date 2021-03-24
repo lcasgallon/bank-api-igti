@@ -1,7 +1,8 @@
 import express from 'express';
 import accountsRouter from './routes/accounts.js'
 import { promises as fs } from "fs";
-import winston, { transport } from 'winston';
+import winston from 'winston';
+import cors from 'cors';
 
 const { readFile, writeFile } = fs;
 
@@ -13,8 +14,8 @@ global.fileName = "accounts.json"
 global.logger = winston.createLogger({
     level: "silly",
     transports: [
-        new (winstoon.transports.Console)(),
-        new (winstoon.transports.File)({filename: "my-bank-api.log"}),
+        new (winston.transports.Console)(),
+        new (winston.transports.File)({filename: "my-bank-api.log"}),
     ],
     format: combine(label({label: 'backend'}),
     timestamp(),
